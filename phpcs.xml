@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<ruleset name="Project Rules">
+    <description>Code standard rules for the project.</description>
+
+    <!-- Include PSR12 rules -->
+    <rule ref="PSR12"/>
+
+    <!-- Set line limit to 120 characters -->
+    <rule ref="Generic.Files.LineLength">
+        <properties>
+            <property name="absoluteLineLimit" value="0"/>
+            <property name="lineLimit" value="120"/>
+        </properties>
+    </rule>
+</ruleset>
