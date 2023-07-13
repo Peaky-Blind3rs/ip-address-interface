@@ -6,6 +6,7 @@ This library offers a standard interface to implement IP Geolocation and Threat 
 [![Build Status](https://github.com/peaky-blind3rs/ip-address-interface/actions/workflows/main.yml/badge.svg)](https://github.com/peaky-blind3rs/ip-address-interface/actions)
 [![codecov](https://codecov.io/gh/Peaky-Blind3rs/ip-address-interface/branch/main/graph/badge.svg?token=ASNAX7ED01)](https://codecov.io/gh/Peaky-Blind3rs/ip-address-interface)
 ![Type Coverage](https://shepherd.dev/github/Peaky-Blind3rs/ip-address-interface/coverage.svg)
+[![Psalm level](https://shepherd.dev/github/Peaky-Blind3rs/ip-address-interface/level.svg?)](https://psalm.dev/)
 [![PSR-12](https://img.shields.io/badge/code%20style-PSR--12-brightgreen)](https://www.php-fig.org/psr/psr-12/)
 
 ### Requirements
@@ -17,19 +18,33 @@ This library offers a standard interface to implement IP Geolocation and Threat 
 
 The package can be installed via [Composer](https://getcomposer.org/). Run the following command:
 
-`composer require peaky-blind3rs/ip-address-interface`
+```bash
+composer require peaky-blind3rs/ip-address-interface
+```
 
 ### Testing
 
-To run the tests, execute: `composer test`
+To run the tests, execute: 
+
+```bash
+composer test
+```
 
 ### Coding Standards
 
-Check your code for PSR compliance: `composer cs-check`
+Check your code for PSR compliance: 
+
+```bash
+composer cs-check
+```
 
 ### Static Analysis
 
-Analyze your code statically: `composer static-analysis`
+Analyze your code statically: 
+
+```bash
+composer static-analysis
+```
 
 ### License
 
