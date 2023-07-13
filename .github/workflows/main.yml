@@ -47,9 +47,6 @@ jobs:
         with:
           file: ./coverage.xml
 
-      - name: Generate Type Coverage
-        run: composer run-script type-coverage
-
       - name: Upload coverage reports as artifact
         uses: actions/upload-artifact@v2
         with:
