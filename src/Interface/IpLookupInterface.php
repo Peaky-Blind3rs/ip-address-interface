@@ -8,7 +8,7 @@
  *
  * PHP version 8.2
  *
- * @category    Interfaces
+ * @category    Interface
  * @package     PeakyBlind3rs\IpAddressInterface
  * @author      Tommy Shelby <developers@remitso.com>
  * @copyright   2023 RemitSo Private Limited
@@ -18,7 +18,7 @@
 
 declare(strict_types=1);
 
-namespace PeakyBlind3rs\IpAddressInterface;
+namespace PeakyBlind3rs\IpAddressInterface\Interface;
 
 use PeakyBlind3rs\IpAddressInterface\Model\IpAddress;
 use Psr\Http\Message\ResponseInterface;
