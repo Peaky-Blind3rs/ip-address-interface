@@ -1,0 +1,62 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      max-parallel: 4
+      matrix:
+        php-versions: ['8.2']
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-versions }}
+          tools: composer:v2
+
+      - name: Install Xdebug
+        run: pecl install xdebug
+
+      - name: Validate composer.json and composer.lock
+        run: composer validate
+
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress --no-interaction
+
+      - name: Run tests with coverage
+        run: composer run-script test
+
+      - name: Check coding standards
+        run: composer run-script cs-check
+
+      - name: Run static analysis
+        run: composer run-script static-analysis
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+        with:
+          file: ./coverage.xml
+
+      - name: Generate Type Coverage
+        run: composer run-script type-coverage
+
+      - name: Upload coverage reports as artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: Coverage reports
+          path: |
+            ./coverage.xml
+            ./psalmTypeCoverage.txt
