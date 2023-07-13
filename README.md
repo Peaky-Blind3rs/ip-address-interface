@@ -4,6 +4,7 @@ This library offers a standard interface to implement IP Geolocation and Threat 
 
 [![Total Downloads](https://img.shields.io/packagist/dt/peaky-blind3rs/ip-address-interface.svg?style=flat-square)](https://packagist.org/packages/peaky-blind3rs/ip-address-interface)
 [![Build Status](https://github.com/peaky-blind3rs/ip-address-interface/actions/workflows/main.yml/badge.svg)](https://github.com/peaky-blind3rs/ip-address-interface/actions)
+[![codecov](https://codecov.io/gh/Peaky-Blind3rs/ip-address-interface/branch/main/graph/badge.svg?token=ASNAX7ED01)](https://codecov.io/gh/Peaky-Blind3rs/ip-address-interface)
 
 ### Requirements
 
