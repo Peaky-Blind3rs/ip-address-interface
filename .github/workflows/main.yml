@@ -25,9 +25,6 @@ jobs:
           php-version: ${{ matrix.php-versions }}
           tools: composer:v2
 
-      - name: Install Xdebug
-        run: pecl install xdebug
-
       - name: Validate composer.json and composer.lock
         run: composer validate
 
