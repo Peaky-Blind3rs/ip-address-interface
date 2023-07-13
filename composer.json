@@ -22,9 +22,10 @@
         }
     },
     "scripts": {
-        "test": "phpunit",
+        "test": "phpunit --coverage-clover=coverage.xml",
         "cs-check": "phpcs src/ tests/ --colors",
-        "static-analysis": "psalm"
+        "static-analysis": "psalm --show-info=false --stats",
+        "type-coverage": "psalm --show-info=false --stats | tee psalmTypeCoverage.txt"
     },
     "authors": [
         {
