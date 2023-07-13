@@ -41,5 +41,5 @@ interface IpLookupInterface
      * @param string $ipAddress
      * @return \PeakyBlind3rs\IpAddressInterface\Model\IpAddress|\Psr\Http\Message\ResponseInterface
      */
-    public static function lookup(string $ipAddress): IpAddress|ResponseInterface;
+    public function lookup(string $ipAddress): IpAddress|ResponseInterface;
 }
