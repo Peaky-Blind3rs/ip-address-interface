@@ -41,6 +41,13 @@ use PeakyBlind3rs\IpAddressInterface\Interface\Model\CompanyInterface;
 class IpAddress implements IpAddressInterface
 {
     /**
+     * Property to store the ip address
+     *
+     * @var string|null
+     */
+    private ?string $ip = null;
+
+    /**
      * Property to store the Geolocation.
      *
      * @var \PeakyBlind3rs\IpAddressInterface\Interface\Model\GeolocationInterface | null
@@ -88,6 +95,24 @@ class IpAddress implements IpAddressInterface
      * @var \PeakyBlind3rs\IpAddressInterface\Interface\Model\CompanyInterface | null
      */
     private ?CompanyInterface $company = null;
+
+    /**
+     * @inheritDoc
+     */
+    public function getIp(): ?string
+    {
+        return $this->ip;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function setIp(?string $ip): IpAddressInterface
+    {
+        $this->ip = $ip;
+
+        return $this;
+    }
 
     /**
      * @inheritDoc
