@@ -89,8 +89,13 @@ class IPServiceFactory
 
         try {
             $reflectionClass = new ReflectionClass($adapter);
-            /** @var \PeakyBlind3rs\IpAddressInterface\Interface\IpLookupInterface $instance */
-            $instance = $reflectionClass->newInstanceArgs([$dsnComponents]);
+            if ($reflectionClass->getConstructor() && $reflectionClass->getConstructor()->getParameters()) {
+                /** @var \PeakyBlind3rs\IpAddressInterface\Interface\IpLookupInterface $instance */
+                $instance = $reflectionClass->newInstanceArgs([$dsnComponents]);
+            } else {
+                /** @var \PeakyBlind3rs\IpAddressInterface\Interface\IpLookupInterface $instance */
+                $instance = $reflectionClass->newInstanceWithoutConstructor();
+            }
 
             return $instance;
         } catch (\ReflectionException $e) {
