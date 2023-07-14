@@ -33,6 +33,16 @@ final class IpAddressTest extends TestCase
     }
 
     /**
+     * Test get and set ip
+     */
+    public function testGetSetIp(): void
+    {
+        $ip = '192.168.1.1';
+        $this->ipAddress->setIp($ip);
+        $this->assertSame($ip, $this->ipAddress->getIp());
+    }
+
+    /**
      * Test get and set Geolocation
      */
     public function testGetSetGeolocation(): void
