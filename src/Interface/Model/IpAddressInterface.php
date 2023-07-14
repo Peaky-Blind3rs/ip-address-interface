@@ -37,6 +37,23 @@ namespace PeakyBlind3rs\IpAddressInterface\Interface\Model;
 interface IpAddressInterface
 {
     /**
+     * Gets the IP address.
+     *
+     * @return string|null The IP address or null if it does not exist.
+     */
+    public function getIp(): ?string;
+
+
+    /**
+     * Sets the IP address.
+     *
+     * @param string|null $ip The IP address to set. If null, the IP address will be removed.
+     * @return $this
+     */
+    public function setIp(?string $ip): self;
+
+
+    /**
      * Get the Geolocation object of the IP address.
      *
      * @return \PeakyBlind3rs\IpAddressInterface\Interface\Model\GeolocationInterface|null The Geolocation
