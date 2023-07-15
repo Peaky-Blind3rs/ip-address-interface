@@ -5,7 +5,7 @@
  * This factory is responsible for instantiating the correct IP Lookup service
  * based on the scheme provided in the DSN string.
  *
- * PHP version 7.4 | 8.0
+ * PHP version 8.2
  *
  * @category Factory
  * @package PeakyBlind3rs\IpAddressInterface
