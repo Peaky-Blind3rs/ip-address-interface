@@ -16,7 +16,7 @@ This library offers a standard interface to implement IP Geolocation and Threat 
 ### Requirements
 
 - PHP 8.2 or higher
-- psr/http-message 1.0 or higher
+- psr/http-message 1.1 or higher
 
 ### Installation
 
