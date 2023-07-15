@@ -26,6 +26,72 @@ The package can be installed via [Composer](https://getcomposer.org/). Run the f
 composer require peaky-blind3rs/ip-address-interface
 ```
 
+### Usage
+
+Using [IPInfo Adapter](https://ipinfo.io)
+
+```php
+use PeakyBlind3rs\IpAddressInterface\Interface\Model\IpAddressInterface;
+use PeakyBlind3rs\IpAddressInterface\IPServiceFactory;
+
+$instance = IPServiceFactory::getInstance('ipinfo://nobody:your-api-token@ipinfo.io/?timeout=30');
+
+$result = $instance->lookup('27.126.160.0');
+
+if ($result instanceof IpAddressInterface) {
+    // Request was successful, use getter methods to get data
+} else {
+    // Requested Ended in Error and $result hold instance of \Psr\Http\Message\ResponseInterface
+}
+```
+Or if you want to use [IPData Adapter](https://ipdata.co)
+
+```php
+use PeakyBlind3rs\IpAddressInterface\Interface\Model\IpAddressInterface;
+use PeakyBlind3rs\IpAddressInterface\IPServiceFactory;
+
+$instance = IPServiceFactory::getInstance('ipdata://nobody:your-api-key@ipdata.co/?timeout=30');
+
+$result = $instance->lookup('27.126.160.0');
+
+if ($result instanceof IpAddressInterface) {
+    // Request was successful, use getter methods to get data
+} else {
+    // Requested Ended in Error and $result hold instance of \Psr\Http\Message\ResponseInterface
+}
+```
+If you want to use your own adapter, your adapter needs to implement `\PeakyBlind3rs\IpAddressInterface\Interface\IpLookupInterface`
+
+```php
+namespace MyNamespace;
+
+class MyAdapter implements \PeakyBlind3rs\IpAddressInterface\Interface\IpLookupInterface {
+
+}
+
+```
+And then add your adapter to class map and use it
+
+```php
+use MyNamespace\MyAdapter;
+use PeakyBlind3rs\IpAddressInterface\IPServiceFactory;
+use PeakyBlind3rs\IpAddressInterface\Interface\Model\IpAddressInterface;
+
+IPServiceFactory::classMaps([
+    'myadapter' => MyAdapter::class
+]);
+
+$instance = IPServiceFactory::getInstance('myadapter://nobody:your-api-key@myadapter-api.tld/?timeout=30');
+
+$result = $instance->lookup('27.126.160.0');
+
+if ($result instanceof IpAddressInterface) {
+    // Request was successful, use getter methods to get data
+} else {
+    // Requested Ended in Error and $result hold instance of \Psr\Http\Message\ResponseInterface
+}
+```
+
 ### Testing
 
 To run the tests, execute: 
