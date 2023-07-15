@@ -22,6 +22,7 @@ namespace PeakyBlind3rs\IpAddressInterface;
 
 use InvalidArgumentException;
 use PeakyBlind3rs\IpAddressInterface\Adapter\IpDataAdapter;
+use PeakyBlind3rs\IpAddressInterface\Adapter\IpInfoAdapter;
 use PeakyBlind3rs\IpAddressInterface\Interface\IpLookupInterface;
 use ReflectionClass;
 
@@ -44,6 +45,7 @@ class IPServiceFactory
      */
     private static array $systemClassMaps = [
         'ipdata' => IpDataAdapter::class,
+        'ipinfo' => IpInfoAdapter::class,
     ];
 
     /**
